@@ -1,4 +1,5 @@
-#include<bits\stdc++.h>
+
+#include<bits/stdc++.h>
 using namespace std;
 
 int main()
@@ -18,22 +19,14 @@ int main()
             cin>>v[i];
         }
         int ans=0;
-        
+        int maximum=v[0];
         if(v[0]==0) ans++;
         long long int sum=v[0];
         for (int i = 1; i < n; i++)
         {
-            //int sum=0;
-            sum+= v[i];
-            
-            for(int l=0;l<=i;l++)
-            {
-                if(sum==2*v[l])
-                {
-                    ans++;
-                    break;
-                }
-            }
+            sum+=v[i];
+            maximum = max(maximum,v[i]);
+            if(sum-maximum==maximum) ans++;
         }
         cout<<ans<<endl;
     }
